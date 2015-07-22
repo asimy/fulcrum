@@ -1,0 +1,18 @@
+web:
+  build: .
+  links:
+    - db:postgres
+  environment:
+    POSTGRES_HOST: postgres
+    POSTGRES_USER: fulcrum
+    POSTGRES_PASSWORD: fulcrum
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/app
+
+db:
+  image: postgres
+  environment:
+    POSTGRES_USER: fulcrum
+    POSTGRES_PASSWORD: fulcrum
